@@ -20,7 +20,8 @@ services:
         - postgres_data:/var/lib/postgresql/
         
   keycloak:
-      image: jboss/keycloak:15.0.0
+      image: quay.io/keycloak/keycloak:20.0
+      command: start-dev
       container_name: keycloak
       environment:
         DB_VENDOR: POSTGRES
