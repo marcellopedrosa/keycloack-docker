@@ -24,7 +24,7 @@ services:
       command: start-dev
       container_name: keycloak
       environment:
-        TZ: Recife/Brazil
+        TZ: America/Recife
         DB_VENDOR: POSTGRES
         DB_ADDR: postgres_keycloak
         DB_DATABASE: keycloak_db
