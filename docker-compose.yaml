@@ -24,16 +24,19 @@ services:
       command: start-dev
       container_name: keycloak
       environment:
+        TZ: Recife/Brazil
         DB_VENDOR: POSTGRES
         DB_ADDR: postgres_keycloak
         DB_DATABASE: keycloak_db
         DB_USER: keycloak
         DB_SCHEMA: public
         DB_PASSWORD: keycloak
-        KEYCLOAK_USER: admin
-        KEYCLOAK_PASSWORD: admin
-        # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
-        #JDBC_PARAMS: "ssl=true"
+        KEYCLOAK_ADMIN: admin
+        KEYCLOAK_ADMIN_PASSWORD: admin
+        KC_HTTP_RELATIVE_PATH: /auth
+        #KC_HOSTNAME_URL: https://gateway-xxxxxxxx.yyyyyyy.com:8443
+        #KC_HTTPS_CERTIFICATE_KEY_FILE: /etc/x509/https/tls.key
+        #KC_HTTPS_CERTIFICATE_FILE: /etc/x509/https/tls.crt
       ports:
         - 8080:8080
       depends_on:
