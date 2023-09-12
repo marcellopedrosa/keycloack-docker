@@ -14,13 +14,13 @@ services:
       POSTGRES_USER: keycloak
       POSTGRES_PASSWORD: keycloak
     ports:
-      - "5432:5432"
+      - 5432:5432
     restart: on-failure
     volumes:
         - postgres_data:/var/lib/postgresql/
         
   keycloak:
-      image: bitnami/keycloak:22.0.2-debian-11-r0
+      image: jboss/keycloak:15.0.0
       container_name: keycloak
       environment:
         DB_VENDOR: POSTGRES
